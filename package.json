@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"    ← This is what Railway was looking for!
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.18.2",
