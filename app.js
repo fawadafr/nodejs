@@ -1,21 +1,17 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('./routes/index');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from current directory
+app.use(express.static(__dirname));
 
-// Use the router for handling routes
-app.use('/', indexRouter);
+// Default route to serve index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-// Catch-all route for handling 404 errors
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
-  });
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Static server running on port ${PORT}`);
 });
