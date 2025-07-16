@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js"    ← This is what Railway was looking for!
   },
   "dependencies": {
     "express": "^4.18.2",
     "@supabase/supabase-js": "^2.39.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
   }
 }
